@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { Api_Path } from "../../Api_Path";
 
 export default function Dashboard() {
   let naviGate = useNavigate();
@@ -28,9 +29,7 @@ export default function Dashboard() {
 
   const allAdmin = async () => {
     axios
-      .get(
-        "http://localhost/React/restaurant/public/restaurantApi/alladmin.php"
-      )
+      .get(`${Api_Path}/alladmin.php`)
       .then((res) => {
         setAdminInfo(res.data.datas.myadmin);
         // console.log(res.data.datas.menus);
@@ -39,7 +38,7 @@ export default function Dashboard() {
 
   const allMenu = async () => {
     axios
-      .get("http://localhost/React/restaurant/public/restaurantApi/allmenu.php")
+      .get(`${Api_Path}/allmenu.php`)
       .then((res) => {
         setMenuInfo(res.data.datas.menus);
         // console.log(res.data.datas.menus);
@@ -48,7 +47,7 @@ export default function Dashboard() {
 
   const allTeam = async () => {
     axios
-      .get("http://localhost/React/restaurant/public/restaurantApi/chefs.php")
+      .get(`${Api_Path}/chefs.php`)
       .then((res) => {
         setTeamInfo(res.data.item.chefs);
         // console.log(res.data.datas.menus);
@@ -57,9 +56,7 @@ export default function Dashboard() {
 
   const allOrder = async () => {
     axios
-      .get(
-        "http://localhost/React/restaurant/public/restaurantApi/allorder.php"
-      )
+      .get(`${Api_Path}/allorder.php`)
       .then((res) => {
         setOrderInfo(res.data.datas.myorder);
         // console.log(res.data.datas.menus);
@@ -68,7 +65,7 @@ export default function Dashboard() {
 
   const allUser = async () => {
     axios
-      .get("http://localhost/React/restaurant/public/restaurantApi/alluser.php")
+      .get(`${Api_Path}/alluser.php`)
       .then((res) => {
         setUserInfo(res.data.datas.users);
         // console.log(res.data.datas.menus);

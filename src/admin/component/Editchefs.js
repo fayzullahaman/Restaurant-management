@@ -2,6 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import React from "react";
+import { Api_Path } from "../../Api_Path";
 
 export default function Editchefs() {
   let naviGate = useNavigate();
@@ -24,8 +25,7 @@ export default function Editchefs() {
 
   const chefsSubmit = () => {
     axios
-      .post(
-        "http://localhost/React/restaurant/public/restaurantApi/editchefs.php",
+      .post(`${Api_Path}/editchefs.php`,
         {
           id: chefs.chf_id,
           name: chefs.chf_name,
@@ -49,8 +49,7 @@ export default function Editchefs() {
   };
   const chefsOne = async (id) => {
     axios
-      .post(
-        "http://localhost/React/restaurant/public/restaurantApi/getchefs.php",
+      .post(`${Api_Path}/getchefs.php`,
         {
           chid: id,
         }

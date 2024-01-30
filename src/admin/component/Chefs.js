@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
 import React from "react";
+import { Api_Path } from "../../Api_Path";
 
 export default function Chefs() {
   let naviGate = useNavigate();
@@ -21,7 +22,7 @@ export default function Chefs() {
   console.log(chefs);
   const allChefs = async () => {
     axios
-      .get("http://localhost/React/restaurant/public/restaurantApi/chefs.php")
+      .get(`${Api_Path}/chefs.php`)
       .then((res) => {
         setChefs(res.data.item.chefs);
       });
@@ -33,8 +34,7 @@ export default function Chefs() {
 
   const delChefs = async (id) => {
     axios
-      .post(
-        "http://localhost/React/restaurant/public/restaurantApi/delchefs.php",
+      .post(`${Api_Path}/delchefs.php`,
         {
           chefsid: id,
         }

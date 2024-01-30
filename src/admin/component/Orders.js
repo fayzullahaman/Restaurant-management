@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
 import React from "react";
+import { Api_Path } from "../../Api_Path";
 
 export default function Orders() {
   let naviGate = useNavigate();
@@ -21,9 +22,7 @@ export default function Orders() {
 
   const allOrder = async () => {
     axios
-      .get(
-        "http://localhost/React/restaurant/public/restaurantApi/allorder.php"
-      )
+      .get(`${Api_Path}/allorder.php`)
       .then((res) => {
         setOrders(res.data.datas.myorder);
         //   console.log(res.data.datas.myorder);
@@ -36,8 +35,7 @@ export default function Orders() {
 
   const delOrder = async (id) => {
     axios
-      .post(
-        "http://localhost/React/restaurant/public/restaurantApi/delorder.php",
+      .post(`${Api_Path}/delorder.php`,
         {
           orderid: id,
         }

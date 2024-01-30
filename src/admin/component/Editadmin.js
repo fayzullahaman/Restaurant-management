@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
 import React from "react";
+import { Api_Path } from "../../Api_Path";
 
 export default function Editadmin() {
   let naviGate = useNavigate();
@@ -23,8 +24,7 @@ export default function Editadmin() {
 
   const adminSubmit = () => {
     axios
-      .post(
-        "http://localhost/React/restaurant/public/restaurantApi/editadmin.php",
+      .post(`${Api_Path}/editadmin.php`,
         {
           id: adminInfo.id,
           name: adminInfo.name,
@@ -51,8 +51,7 @@ export default function Editadmin() {
 
   const adminOne = async (id) => {
     axios
-      .post(
-        "http://localhost/React/restaurant/public/restaurantApi/getadmin.php",
+      .post(`${Api_Path}/getadmin.php`,
         {
           adminid: id,
         }

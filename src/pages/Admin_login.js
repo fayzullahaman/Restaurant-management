@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { Api_Path } from "../Api_Path";
 
 export default function Admin_login() {
   const naviGate = useNavigate();
@@ -16,11 +17,7 @@ export default function Admin_login() {
 
   const formSubmit = (e) => {
     e.preventDefault();
-    axios
-      .post(
-        "http://localhost/React/restaurant/public/restaurantApi/login.php",
-        admin
-      )
+    axios.post(`${Api_Path}/login.php`, admin )
       .then((res) => {
         // console.log(res.data);
         if (res.data.success) {

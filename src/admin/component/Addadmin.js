@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import React from "react";
+import { Api_Path } from "../../Api_Path";
 
 export default function Addadmin() {
   const navigate = useNavigate();
@@ -29,8 +30,7 @@ export default function Addadmin() {
     e.preventDefault();
     e.persist();
     axios
-      .post(
-        "http://localhost/React/restaurant/public/restaurantApi/addadmin.php",
+      .post(`${Api_Path}/addadmin.php`,
         {
           name: adminInfo.name,
           email: adminInfo.email,

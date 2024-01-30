@@ -1,6 +1,8 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { Api_Path } from "../Api_Path";
+
 
 export default function Home() {
   const [service, setService] = useState([]);
@@ -16,8 +18,7 @@ export default function Home() {
 
   const allMenu = async () => {
     axios
-      .get("http://localhost/React/restaurant/public/restaurantApi/allmenu.php")
-      .then((res) => {
+      .get(`${Api_Path}/allmenu.php`).then((res) => {
         setMenu(res.data.datas.menus);
         // console.log(res.data.datas.menus);
       });
@@ -47,9 +48,7 @@ export default function Home() {
 
   const allservice = async () => {
     axios
-      .get(
-        "http://localhost/React/restaurant/public/restaurantApi/services.php"
-      )
+      .get(`${Api_Path}/services.php`)
       .then((res) => {
         setService(res.data.item.services);
         // console.log(res.data.item.services);
@@ -63,7 +62,7 @@ export default function Home() {
   }, []);
   const allteam = async () => {
     axios
-      .get("http://localhost/React/restaurant/public/restaurantApi/chefs.php")
+      .get(`${Api_Path}/chefs.php`)
       .then((res) => {
         setTeam(res.data.item.chefs);
         // console.log(res.data.item.chefs);
@@ -89,8 +88,7 @@ export default function Home() {
     e.preventDefault();
     e.persist();
     axios
-      .post(
-        "http://localhost/React/restaurant/public/restaurantApi/order.php",
+      .post(`${Api_Path}/order.php`,
         {
           name: orderInfo.name,
           email: orderInfo.email,

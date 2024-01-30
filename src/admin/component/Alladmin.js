@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
 import React from "react";
+import { Api_Path } from "../../Api_Path";
 
 export default function Alladmin() {
   let naviGate = useNavigate();
@@ -21,9 +22,7 @@ export default function Alladmin() {
 
   const allAdmin = async () => {
     axios
-      .get(
-        "http://localhost/React/restaurant/public/restaurantApi/alladmin.php"
-      )
+      .get(`${Api_Path}/alladmin.php`)
       .then((res) => {
         setAdmin(res.data.datas.myadmin);
       });
@@ -35,8 +34,7 @@ export default function Alladmin() {
 
   const delAdmin = async (id) => {
     axios
-      .post(
-        "http://localhost/React/restaurant/public/restaurantApi/deladmin.php",
+      .post(`${Api_Path}/deladmin.php`,
         {
           adminid: id,
         }

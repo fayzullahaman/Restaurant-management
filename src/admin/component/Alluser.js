@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
 import React from "react";
+import { Api_Path } from "../../Api_Path";
 
 export default function Alluser() {
   let naviGate = useNavigate();
@@ -21,7 +22,7 @@ export default function Alluser() {
 
   const allUser = async () => {
     axios
-      .get("http://localhost/React/restaurant/public/restaurantApi/alluser.php")
+      .get(`${Api_Path}/alluser.php`)
       .then((res) => {
         setUserInfo(res.data.datas.users);
         // console.log(res.data.datas.menus);
@@ -34,8 +35,7 @@ export default function Alluser() {
 
   const delUser = async (id) => {
     axios
-      .post(
-        "http://localhost/React/restaurant/public/restaurantApi/deluser.php",
+      .post(`${Api_Path}/deluser.php`,
         {
           userid: id,
         }

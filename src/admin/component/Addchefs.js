@@ -2,6 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import React from "react";
+import { Api_Path } from "../../Api_Path";
 
 export default function Addchefs() {
   const navigate = useNavigate();
@@ -27,8 +28,7 @@ export default function Addchefs() {
     e.preventDefault();
     e.persist();
     axios
-      .post(
-        "http://localhost/React/restaurant/public/restaurantApi/addchefs.php",
+      .post(`${Api_Path}/addchefs.php`,
         {
           name: chefsinfo.name,
           designation: chefsinfo.designation,

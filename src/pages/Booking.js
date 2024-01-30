@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { Api_Path } from "../Api_Path";
 
 export default function Booking() {
   const naviGate = useNavigate();
@@ -21,8 +22,7 @@ export default function Booking() {
     e.preventDefault();
     e.persist();
     axios
-      .post(
-        "http://localhost/React/restaurant/public/restaurantApi/order.php",
+      .post(`${Api_Path}/order.php`,
         {
           name: orderInfo.name,
           email: orderInfo.email,

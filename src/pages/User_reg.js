@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { Api_Path } from "../Api_Path";
 
 export default function User_reg() {
   const navigate = useNavigate();
@@ -21,8 +22,7 @@ export default function User_reg() {
     e.preventDefault();
     // e.persist();
     axios
-      .post(
-        "http://localhost/React/restaurant/public/restaurantApi/addusers.php",
+      .post(`${Api_Path}/addusers.php`,
         {
           name: userInfo.name,
           email: userInfo.email,

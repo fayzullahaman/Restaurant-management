@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import { Api_Path } from "../../Api_Path";
 
 export default function Invoice() {
   const [orderInfo, setOrderInfo] = useState([]);
@@ -10,9 +11,7 @@ export default function Invoice() {
 
   const allOrder = async () => {
     axios
-      .get(
-        "http://localhost/React/restaurant/public/restaurantApi/allorder.php"
-      )
+      .get(`${Api_Path}/allorder.php`)
       .then((res) => {
         setOrderInfo(res.data.datas.myorder);
         // console.log(res.data.datas.menus);

@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import { Api_Path } from "../Api_Path";
 
 export default function About() {
   const [team, setTeam] = useState([]);
@@ -9,7 +10,7 @@ export default function About() {
   }, []);
   const allteam = async () => {
     axios
-      .get("http://localhost/React/restaurant/public/restaurantApi/chefs.php")
+      .get(`${Api_Path}/chefs.php`)
       .then((res) => {
         setTeam(res.data.item.chefs);
         console.log(res.data.item.chefs);

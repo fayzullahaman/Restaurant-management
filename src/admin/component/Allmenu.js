@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
 import React from "react";
+import { Api_Path } from "../../Api_Path";
 
 export default function Allmenu() {
   let naviGate = useNavigate();
@@ -21,7 +22,7 @@ export default function Allmenu() {
 
   const allMenu = async () => {
     axios
-      .get("http://localhost/React/restaurant/public/restaurantApi/allmenu.php")
+      .get(`${Api_Path}/allmenu.php`)
       .then((res) => {
         setMenu(res.data.datas.menus);
         // console.log(res.data.datas.menus);
@@ -34,8 +35,7 @@ export default function Allmenu() {
 
   const delMenu = async (id) => {
     axios
-      .post(
-        "http://localhost/React/restaurant/public/restaurantApi/delmenu.php",
+      .post(`${Api_Path}/delmenu.php`,
         {
           menuid: id,
         }

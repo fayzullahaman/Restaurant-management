@@ -1,5 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import { Api_Path } from "../Api_Path";
+// import { Api_Path } from "../Api_Path";
 
 export default function Service() {
   const [service, setService] = useState([]);
@@ -9,9 +11,7 @@ export default function Service() {
   }, []);
   const allservice = async () => {
     axios
-      .get(
-        "http://localhost/React/restaurant/public/restaurantApi/services.php"
-      )
+      .get(`${Api_Path}/services.php`)
       .then((res) => {
         setService(res.data.item.services);
         // console.log(res.data.item.services);

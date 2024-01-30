@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
 import React from "react";
+import { Api_Path } from "../../Api_Path";
 
 export default function Editmenu() {
   let naviGate = useNavigate();
@@ -23,8 +24,7 @@ export default function Editmenu() {
 
   const menuSubmit = () => {
     axios
-      .post(
-        "http://localhost/React/restaurant/public/restaurantApi/editmenu.php",
+      .post(`${Api_Path}/editmenu.php`,
         {
           id: menu.id,
           name: menu.name,
@@ -53,8 +53,7 @@ export default function Editmenu() {
 
   const menuOne = async (id) => {
     axios
-      .post(
-        "http://localhost/React/restaurant/public/restaurantApi/getmenu.php",
+      .post(`${Api_Path}/getmenu.php`,
         {
           muid: id,
         }

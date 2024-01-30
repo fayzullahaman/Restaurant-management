@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
 import React from "react";
+import { Api_Path } from "../../Api_Path";
 
 export default function Edituser() {
   let naviGate = useNavigate();
@@ -23,8 +24,7 @@ export default function Edituser() {
 
   const userSubmit = () => {
     axios
-      .post(
-        "http://localhost/React/restaurant/public/restaurantApi/edituser.php",
+      .post(`${Api_Path}/edituser.php`,
         {
           id: userInfo.id,
           name: userInfo.name,
@@ -52,8 +52,7 @@ export default function Edituser() {
 
   const userOne = async (id) => {
     axios
-      .post(
-        "http://localhost/React/restaurant/public/restaurantApi/getuser.php",
+      .post(`${Api_Path}/getuser.php`,
         {
           userid: id,
         }

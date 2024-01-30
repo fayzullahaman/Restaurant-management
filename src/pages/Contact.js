@@ -2,6 +2,7 @@ import axios from "axios";
 import React from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { Api_Path } from "../Api_Path";
 
 export default function Contact() {
   let naviGate = useNavigate();
@@ -21,8 +22,7 @@ export default function Contact() {
     e.preventDefault();
     e.persist();
     axios
-      .post(
-        "http://localhost/React/restaurant/public/restaurantApi/contact.php",
+      .post(`${Api_Path}/contact.php`,
         {
           name: contactinfo.name,
           email: contactinfo.email,

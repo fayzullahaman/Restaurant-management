@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import React from "react";
+import { Api_Path } from "../../Api_Path";
 
 export default function Addmenu() {
   const navigate = useNavigate();
@@ -42,8 +43,7 @@ export default function Addmenu() {
     datas.append("mydata", JSON.stringify(menuInfo));
     datas.append("mydata1", image.file);
     axios
-      .post(
-        "http://localhost/React/restaurant/public/restaurantApi/addmenu.php",
+      .post(`${Api_Path}/addmenu.php`,
         datas,
         {
           headers: {
